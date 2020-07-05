@@ -102,10 +102,11 @@ declare namespace loadImage {
 
 // loadImage is implemented as a callable object.
 interface LoadImage  {
-    (file: File | Blob | string, callback: loadImage.LoadImageCallback, options: loadImage.LoadImageOptions):
-        | HTMLImageElement
-        | FileReader
-        | false;
+    (
+        file: File | Blob | string,
+        callback: loadImage.LoadImageCallback | loadImage.LoadImageOptions,
+        options: loadImage.LoadImageOptions,
+    ): HTMLImageElement | FileReader | false;
 
     // Parses image meta data and calls the callback with the image head
     parseMetaData: (
